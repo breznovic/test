@@ -1,34 +1,29 @@
-import React, { useState } from 'react'
-import './App.css'
+import React, { useState, useRef } from 'react'
+import './Styles/App.css'
 import PostList from './Components/PostList'
-import Button from './Components/UI/Button'
-import Input from './Components/UI/Input'
+import PostForm from './Components/PostForm'
 
 function App() {
-const [posts, setPosts] = useState( [
-  {id: 1, title: 'JavaScript', body: 'Language'},
-  {id: 2, title: 'React', body: 'Library'}, 
-  {id: 3, title: 'Angular', body: 'Framework'}
-])
+  const [posts, setPosts] = useState([
+    { id: 1, title: 'JavaScript', body: 'Language' },
+    { id: 2, title: 'React', body: 'Library' },
+    { id: 3, title: 'Angular', body: 'Framework' }
+  ])
 
-const [title, setTitle] = useState('For input')
-const bodyInputRef = useRef()
-const addNewPost = (e) => {
-e.preventDefault()
+const createPost = (newPost) => {
+setPosts([...posts, newPost])
+}
+
+const removePost = (post) => {
+setPosts(posts.filter(p => p.id !== post.id))
 }
 
   return (
-    <div>
+    <div className='app'>
       <div>
-      <form>
-        <Input value={title} onChange={e => setTitle(e.target.value)}
-        type='text' placeholder='Post Information' />
-        <Input type='text' ref={bodyInputRef}
-        placeholder='Post Description' />
-        <Button onClick={addNewPost} >Create post</Button>
-      </form>
-       <PostList className='pad' posts={posts} title='Posts List A' />
-       </div>
+        <PostForm create={createPost} />
+        <PostList remove={removePost} posts={posts} title='Posts List' />
+      </div>
     </div>
   )
 }
