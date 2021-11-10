@@ -2,11 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
-import {splitIntoWords} from "./01-hello-tests/01";
+import {sum} from "./03/03";
 
-const sentence = 'Hello my friends!'
-const result = splitIntoWords (sentence)
-result[0] == 'hello'
+sum(1, 2)
 
 ReactDOM.render(
     <App />,
