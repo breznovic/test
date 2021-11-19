@@ -1,3 +1,5 @@
+import React from 'react'
+
 const ages = [18, 20, 22, 1, 100, 90, 14]
 
 const predicate = (age: number) => {
@@ -26,8 +28,8 @@ const courses = [
     }
 ]
 
-const cheapPredicate = (props: CourseType) => {
-return courses.price < 160
+const cheapPredicate = (course: CourseType) => {
+return course.price < 160
 }
 
 const cheapCourses = [

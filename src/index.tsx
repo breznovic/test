@@ -2,12 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
-import {sum} from "./03/03";
-
-sum(1, 2)
+import {User} from "./05/06_callback";
 
 ReactDOM.render(
-    <App />,
+    <User />,
   document.getElementById('root')
 )
 
