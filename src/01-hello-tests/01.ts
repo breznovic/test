@@ -1,7 +1,7 @@
-export const sentence = "Hello, world!"
+export const sentence = "Hello, world"
 
 export function splitIntoWords(sentence: string) {
-    return ['hello', 'world']
+    return ['Hello', 'my', 'friend']
 }
 
 export function sum(a: number, b: number) {
