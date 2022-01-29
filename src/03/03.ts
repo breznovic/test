@@ -1,27 +1,4 @@
-export type CityStudentType = {
-    title: string
-    countryTitle: string
-}
-
-type AddressType = {
-    streetTitle: string
-    city: CityStudentType
-}
-
-type TechnologiesType = {
-    id: number
-    title: string
-}
-
-export type StudentType = {
-    id: number
-    name: string
-    age: number
-    isActive: boolean
-    address: AddressType
-    technologies: Array<TechnologiesType>
-
-}
+import {StudentType} from "../02/02_01";
 
 const student: StudentType = {
     id: 1,
@@ -48,5 +25,20 @@ const student: StudentType = {
             id: 3,
             title: 'React'
         },
-        ]
+    ]
+}
+
+export const addSkill = (student: StudentType, skill: string) => {
+    student.technologies.push({
+        id: new Date().getTime(),
+        title: skill
+    })
+}
+
+export function studentActive(student: StudentType) {
+    student.isActive = true
+}
+
+export function studentRelocate(student: StudentType) {
+    student.address.city.title = 'Barcelona'
 }
